@@ -1,25 +1,23 @@
 package com.example.holamundo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-    lateinit var textView1:TextView
-    lateinit var textView2:TextView
-    lateinit var textView3:TextView
+    lateinit var textViewRegister:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        textView1 = findViewById<TextView>(R.id.textView1)
-        textView2 = findViewById<TextView>(R.id.textView2)
-        textView3 = findViewById<TextView>(R.id.textView3)
+        textViewRegister = findViewById<TextView>(R.id.textViewRegister)
+        textViewRegister.setOnClickListener {
+            Toast.makeText(this,"Register clicked!", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
-        textView1.text = "Reynaldo"
-        textView2.text = "Choque"
-        textView3.text = "2023"
-
-        textView1.textSize = 26f
     }
 }
